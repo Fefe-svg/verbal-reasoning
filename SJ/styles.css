@@ -1,0 +1,651 @@
+/* General body styling */
+body {
+    font-family: Arial,Arial;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: white; /* Background for the entire page */
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    /* font-style: bold; */
+}
+
+.start-screen {
+    background-color: #5DCA9C; /* Green background for start screen */
+    height: 600px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Header styling */
+.header1, .header2 {
+    margin: 0; 
+    padding: 0; 
+    text-align: center; 
+}
+
+.header1 h1, .header2 h1 {
+    margin: 0;
+    padding: 0; 
+    line-height: 1; 
+}
+
+.header1 h1 {
+    font-size: 80px !important; 
+    color: #FFFFFF; 
+}
+
+.header2 h1 {
+    font-size: 90px !important; 
+    color: #FFFFFF; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+.highlight {
+    color: #213555;
+}
+
+
+/* Start button styling */
+#startButton {
+    background-color: #008080;
+    color: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: 50px;
+    z-index: 1000; /* Ensure it is on top of other content */
+    width: 200px; 
+    height: 70px;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight:700 ;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.7);
+    position: relative;
+    bottom: -150px;
+    left: 10%;
+    /* transform: translateX(-50%); */
+    margin-top: -10px;
+    margin-left: -300px;
+    
+}
+#startButton:hover{
+    font-size: 42px;
+    height: 75px;
+    width: 220px;
+    font-weight: 800;
+    transition: background-color 0.5s, color 0.5s, border 0.5s;
+}
+
+/* Game screen styling */
+.game-screen, .result-screen, .score-screen {
+    background-color: white;
+}
+
+/* Top bar styling */
+.top-bar {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: safe;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    /* background-color: #f0f0f0; */
+    background-color: white;
+    /* border-bottom: 1px solid #ddd; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure the top-bar stays on top */
+}
+
+/* Progress bar container */
+.progress-bar {
+    width: 1200px; /* Adjust as needed */
+    height: 48px;
+    background-color: #e0e0e0; /* Light grey background */
+    border-radius: 10px;
+    margin-right: 20px; /* Space between progress bar and progress text */
+    position: relative; /* Ensure it's correctly positioned within the top bar */
+    /* Modified Progress bar container width */
+
+}
+
+/* Progress bar fill */
+.progress-bar-fill {
+    height: 100%;
+    width: 0; /* Start with 0% width */
+    background-color: #6481A8; /* Green color for the progress fill */
+    border-radius: 10px;
+    transition: width 0.3s ease; /* Smooth transition for width change */
+    position: absolute; /* Make sure it's positioned inside the container */
+    top: 0;
+    left: 0;
+   
+}
+
+.top-bar .progress {
+    font-size: 1.5em;
+    /* background-color: #6481A8; */
+    padding: 12px;
+    border-radius: 5px;
+    position: absolute;
+    left: 1%; /* Center horizontally */
+    /* transform: translateX(-50%);  */
+    /* Adjust for horizontal centering
+    top: 50%;
+    transform: translate(-50%, -50%); Center vertically */
+    height: 20px;
+    width: auto; /* Adjust width if needed */
+    text-align: center; /* Center text */
+    line-height: 60px; /* Align text vertically within the container */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    z-index: 2;
+}
+
+/* Timer positioning */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1px;
+    margin-right: 25px;
+}
+
+#timerBox {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    position: relative;
+    box-sizing: border-box;
+    background-image: linear-gradient(white, white),
+    conic-gradient(to right, #213555 0%, #D3D3D3 100%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Grid styling */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px); /* Adjusted size */
+    gap: 20px;
+    justify-content: center;
+    margin-top: 100px; /* Add margin to avoid overlap with the top bar */
+}
+
+/* Cell styling */
+.cell {
+    width: 210px; /* Adjusted size */
+    height: 210px; /* Adjusted size */
+    cursor: pointer;
+}
+
+.cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: calc(90); /* Ensures the image covers the entire cell */
+    border-radius: 10px;
+}
+
+/* Feedback styling */
+.feedback {
+    margin: 20px;
+    font-size: 4em;
+}
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+/* Next button styling */
+#nextButton {
+    background-color: #008080;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    font-size: 1.5em;
+    justify-content: center;
+
+}
+
+/* Score screen specific styling */
+.score-screen {
+    background-color: #5DCA9C; /* Green background for the score screen */
+}
+
+.score-box {
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 16px 32px rgb(32, 32, 32);
+    /* text-align: center; */
+    height: 500px;
+    width: 1200px;
+    text-align: left;
+    margin-top: -20px;
+}
+
+#finalScore, #finalTime {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #333; /* Dark grey color for the text */
+}
+
+#restartButton {
+    background-color: #8A2BE2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: -10px;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+#restartButton:hover {
+    background-color: #ba5dca; /* Green color on hover */
+}
+
+/* Start screen styling */
+.start-screen {
+    background-image: url('images/background.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 450px;
+    width: 100%;
+   border-bottom-right-radius: 60px;
+   border-bottom-left-radius: 60px;
+}
+
+/* Score screen specific styling */
+.score-screen {
+    /* background-image: url('images/background.jpeg');  */
+    background-color: white; 
+    /* filter: blur(8px); */
+    /* z-index: -1000; */
+    /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+.question-container {
+    margin-top: 20px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 100%;
+    max-width: 900px;  /* Adjust as needed */
+    height: 300px;  /* Fixed height to ensure consistent frame size */
+    /* overflow-y: auto;  Allows scrolling if content overflows */
+    font-style: bold ;
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+    position: absolute;
+    bottom: -200px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+#prev{
+    margin-right: 5%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #008080;
+    font-size: medium;
+    /* border: 4px solid #D3D3D3; */
+}
+#next{
+    border-radius: 50px;
+    width: 100px; 
+    height: 50px;
+    background-color: #008080;
+    font-size: medium;
+    /* border: 4px solid #D3D3D3; */
+}
+
+.navigation button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.navigation button:disabled {
+    background-color: #4ba83f;
+}
+
+.question-nav {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.question-nav .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.q-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.q-button.active {
+    background-color: #2196F3;
+}
+
+#finish {
+    /* padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    margin-top: 3%;
+    /* display: flex; 
+    justify-content: center; */
+    /* width: 100px; 
+    height: 50px;
+    align-items: center; */
+    /* margin-left: 100%; */
+     /* margin-left: 10%; */ 
+     border-radius: 50px;
+     width: 100px; 
+     height: 50px;
+     background-color: red;
+     font-size: medium;
+}
+
+
+.container.visible {
+    display: flex;
+}
+
+.question-frame {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    margin-right: 5%;
+    margin-left: 5%;
+    /* width: 100px; */
+    max-width: 900px;  /* Adjust as needed */
+    height: 500px;  /* Fixed height to ensure consistent frame size */
+    /* overflow-y: auto;  Allows scrolling if content overflows */
+    position: fixed;
+}
+
+#question{
+    margin-top: 40px;
+}
+/* self added*/
+.btn {
+    /* display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    /* margin-top: ; */
+    /* cursor: pointer; */
+    background-color: #8A2BE2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  #detailedResults {
+    max-height: 600px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    padding-top: 10px;
+    background-color: gainsboro;
+  }
+  .result-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+
+
+ /* Add this CSS to style the options as buttons and handle the selected state */
+.options-container {
+    display: flex;
+    flex-direction: row; /* Changed to row to display options in a single line */
+    gap: 10px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-wrap: wrap; /* Added to wrap options to next line if needed */
+}
+
+.option {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* text-align: center; */
+    margin: 5px; /* Added margin to ensure there is space between options */
+    
+   
+    box-shadow: 0 4px 8px black; /* Add shadow */
+}
+
+.option.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.instruction-screen {
+    background-color: white;
+    /* Green background for start screen */
+    /* height: 600px; */
+    /* background-position: center; Center the background image */
+    /* background-repeat: no-repeat; Prevent the image from repeating */
+    height: 450px;
+    width: 90%;
+    border-radius: 30px;
+    margin-top: 4%;
+    box-shadow: 0 6px 12px rgb(107, 107, 107);
+    /* margin-left: 2%;
+    margin-right: 3%; */
+    /* margin-bottom: %; */
+   /* border-bottom-right-radius: 60px;
+   border-bottom-left-radius: 60px; */
+   
+}
+
+#continueButton {
+    background-color: #ffffff; 
+    color: #008080;
+    border: 4px solid #008080; 
+    border-radius: 60px;
+    z-index: 900; /* Ensure it is on top of other content */
+    width: 200px; 
+    height: 70px;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight:700 ;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.7);
+    position: relative;
+    bottom: -5px;
+    left: 10%;
+    /* transform: translateX(-50%); */
+    margin-top: 20px;
+    margin-left: -300px;
+    font-size: 30px;
+}
+.header3 h1{
+    margin-right: 5%;
+    
+    /* background-color: black; */
+    /* padding: 5%; */
+}
+#continueButton:hover{
+    font-size: 35px;
+      height: 75px;
+    width: 220px; 
+    background-color:white ;
+    /* font-weight: 100; */
+    transition: background-color  0.5s, color  0.5s, border 0.5s;
+}
+.back-to-dashboard-button{
+    background-color: #008080;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    margin-left: 40%;
+  }
+
+  .btn-dash{
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 320px;
+  }
+
+  .complete-set-button {
+    background-color: #8A2BE2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: 50px;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+.complete-set-button:hover {
+    background-color: #218838;
+}
+
+.interpretation-box {
+    border: 2px solid white;
+    padding: 15px;
+    margin: 20px 0;
+    width: 80%;
+    text-align: left;
+    margin-left: 8%;
+}
+
+.bottom-section {
+    background-color: white;
+    /* flex-grow: 1; Less grow compared to top-section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2px; /* Add padding to manage spacing */
+    margin-top: 380px;
+    
+}
+/* Instructions box styling */
+.instructions-box {
+    width: 1340px;
+    padding: 11px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 0.9;
+    margin-top: -25px; /* Adjust this value as needed */
+    background-color: #4F709C;
+    border-top-right-radius: 60px;
+   border-top-left-radius: 60px;
+}
+
+
+.instructions-box h2 {
+    color: black;
+    font-size: 40px;
+    padding-left: 40px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>{{username}}</h2>
+            <ul>
+                <li><a href="/results?username={{username}}">Results</a></li>
+                <li><a href="/logout" id="logoutButton">Sign Out</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>DASHBOARD</h1>
+            <div class="button-container">
+                <a href="/situational/index.html" class="dashboard-button" id="situationalSet1Button">Set1</a>
+                <a href="/situational/indexset2.html" class="dashboard-button" id="situationalSet2Button">Set2</a>
+                <a href="/situational/indexset3.html" class="dashboard-button" id="situationalSet3Button">Set3</a>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Store the username in localStorage
+const username = '{{username}}';
+localStorage.setItem('username', username);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const completedSetsKey = `completedSets_${username}`;
+    const displayedSetsKey = `displayedSets_${username}`;
+    const currentSetKey = `currentSet_${username}`;
+
+    let completedSets = JSON.parse(localStorage.getItem(completedSetsKey)) || [];
+    let displayedSets = JSON.parse(localStorage.getItem(displayedSetsKey)) || [];
+
+    // Function to generate a random set excluding already completed and displayed ones
+    function getRandomSet(excludeSets, displayedSets) {
+        const sets = ['Set1', 'Set2', 'Set3'];
+        const availableSets = sets.filter(set => !excludeSets.includes(set) && !displayedSets.includes(set));
+        if (availableSets.length === 0) {
+            // If all sets are completed, reset the completed and displayed sets
+            completedSets = [];
+            displayedSets = [];
+            localStorage.setItem(completedSetsKey, JSON.stringify(completedSets));
+            localStorage.setItem(displayedSetsKey, JSON.stringify(displayedSets));
+            // Recalculate available sets
+            return sets[Math.floor(Math.random() * sets.length)];
+        }
+        const randomIndex = Math.floor(Math.random() * availableSets.length);
+        return availableSets[randomIndex];
+    }
+
+    // Get the current set for the user
+    let currentSet = localStorage.getItem(currentSetKey);
+
+    // If no set is assigned or the set was previously displayed, select a new random one
+    if (!currentSet || displayedSets.includes(currentSet)) {
+        currentSet = getRandomSet(completedSets, displayedSets);
+        localStorage.setItem(currentSetKey, currentSet);
+    }
+
+    // Handle button visibility based on the current set
+    const sets = ['Set1', 'Set2', 'Set3'];
+    sets.forEach(set => {
+        const button = document.getElementById(`situational${set}Button`);
+        if (set === currentSet) {
+            button.style.display = 'inline-block';
+        } else {
+            button.style.display = 'none';
+        }
+    });
+
+    // Check completion status and update localStorage
+    const completedSet = localStorage.getItem('completedSet');
+    if (completedSet) {
+        completedSets.push(completedSet);
+        localStorage.setItem(completedSetsKey, JSON.stringify(completedSets));
+        localStorage.removeItem(currentSetKey);
+        localStorage.removeItem('completedSet');
+    }
+});
+
+// Handle user sign out
+document.getElementById('logoutButton').addEventListener('click', () => {
+    const username = localStorage.getItem('username');
+    const currentSetKey = `currentSet_${username}`;
+    const displayedSetsKey = `displayedSets_${username}`;
+    const currentSet = localStorage.getItem(currentSetKey);
+
+    if (currentSet) {
+        const displayedSets = JSON.parse(localStorage.getItem(displayedSetsKey)) || [];
+        displayedSets.push(currentSet);
+        localStorage.setItem(displayedSetsKey, JSON.stringify(displayedSets));
+    }
+    // Optionally clear user-specific data
+    localStorage.removeItem(currentSetKey);
+});
+</script>
+
+</body>
+</html>

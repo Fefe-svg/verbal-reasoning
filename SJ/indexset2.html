@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situational Judgement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Start Screen -->
+    <div class="container start-screen">
+        <div class="header1">
+            <h1>Situational</h1>
+        </div>
+        <div class="header2">
+            <h1><span class="highlight">Judgement</span></h1>
+        </div>
+        <button id="startButton">START</button>
+    </div>
+    <div class="bottom-section">
+        <!-- <div class="header3"> -->
+            <div class="instructions-box">
+                <h2>Instructions</h2><ul>
+    <!-- </div> -->
+        <!-- <h2> “Tap the odd one out”</h2> -->
+        <!-- <h1>Answer the following questions based on the data provided in the table.</h1> -->
+         <p><li>You will be presented with a series of scenarios, each followed by a set of possible responses.</li>
+            <br><li>For each scenario, select the response that you believe is most appropriate based on the information provided.</li>
+            <br><li>There are a total of 27 questions. Try to answer all questions to the best of your ability.</li>
+            <br><li>You will have a total of 10 minutes to complete the test. A timer at the top of the screen will display the remaining time.</li>
+            <!-- <br><li>If you need to change your answer, you can use the "Previous" button to go back to the previous question.</li>
+            <br><li>Once you have answered all the questions, click the "Finish" button to submit your answers and view your results.</li> -->
+           <br><li>Your performance will be evaluated based on the appropriateness of your responses.</p></li></p></ul>
+    
+        <!-- <button id="continueButton">CONTINUE</button> -->
+    </div> 
+    </div>
+
+    <!-- Game Screen -->
+    <div class="container game-screen hidden">
+        <div class="top-bar">
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+                <div class="progress" style="color: white; border: bold;">1/10</div>
+            </div>
+            <!-- <div class="progress">Progress 1/10</div>
+            <div id="timer" class="timer">10:00</div> -->
+            <div class="timer-container">
+                <div id="timerBox">
+                    <span id="timer">10:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="content">
+                <div class="question-container">
+                    <div id="question">
+                        <!-- Questions will be dynamically loaded here -->
+                    </div>
+                    <div class="navigation">
+                        <button id="prev" disabled>&#8592</button>
+                        <button id="next">Next</button>
+                        <button id="finish">Finish</button>
+                    </div>
+                </div>
+                <!-- <div class="question-nav">
+                    <div class="buttons">
+                        <!-- Question navigation buttons will be dynamically loaded here -->
+                    <!-- </div>  -->
+                    <!-- <button id="finish">Finish</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div class="container result-screen hidden">
+        <div class="top-bar">
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="progress">Progress 1/10</div>
+            <div class="timer">10:00</div>
+           
+        </div>
+        <!-- <div class="feedback">Correct!</div> -->
+        <button id="nextButton">Next</button>
+    </div>
+
+    <!-- Score Screen -->
+    <div class="container score-screen hidden">
+        <div class="score-box">
+            <h1>Quiz Results</h1>
+            <div class="final-score" id="finalScore">Final Score: 0/10</div>
+            <!-- <div class="final-time" id="finalTime">Time Taken: 00:00</div> -->
+            <!-- <button id="restartButton">Restart</button> -->
+
+            <!-- self added-->
+        <div class="text-center text-md my-2 ">
+            <div class="interpretation-box">
+            <strong>Interpretation:</strong>
+            
+            <ul>
+                 <li>Participants who score low on situational judgment may struggle with accurately assessing situational cues, considering relevant factors, and determining appropriate courses of action.</li>
+                 <li>They may exhibit difficulties in understanding the context of the presented scenarios, prioritizing information effectively, or discerning the logical sequence of actions.</li>
+                 <li>Their performance suggests challenges in applying sound judgment and reasoning skills to real-world situations, which may impact their ability to make optimal decisions in varied contexts.</li></ul>
+            </div>
+        </p>
+          <p id="interpretation" class="text-center"></p>
+          <!-- <button id="toggleResults" class="btn">Show Detailed Results</button> -->
+      
+          <div id="detailedResults" class="hidden">
+            <h2>Detailed Results</h2>
+            <ul id="resultsList"></ul>
+          </div>
+          <!-- Content of Situational Judgement Set 1 -->
+          <!-- <button id="completeSet" class="complete-set-button">Back To Dashboard</button> -->
+          <button id="back-to-dashboard-button" class="back-to-dashboard-button">Back to Dashboard</button>
+          <!-- <button id="back-to-dashboard-button" class="back-to-dashboard-button">Back to Dashboard</button> -->
+        </div>
+        </div>
+    </div>
+    <script src="scriptset2.js"></script>
+</body>
+
+</html>
