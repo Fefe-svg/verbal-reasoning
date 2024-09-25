@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let timeLeft = 600; // 10 minutes in seconds
     let totalTimeTaken = 0;
     let correctAnswers = 0;
-
+    
+    
     const questions = [
         {
             Sno: 1,
